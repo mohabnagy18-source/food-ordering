@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FoodHub — Order food you love</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">🍔 <span>FoodHub</span></div>
+  <nav class="topnav">
+    <button class="nav-btn" id="nav-home">Home</button>
+    <button class="nav-btn" id="nav-orders">My Orders</button>
+    <button class="nav-btn" id="nav-auth">Sign in</button>
+    <button class="cart-btn" id="cart-open">🛒 <span id="cart-count">0</span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Craving something? <span class="accent">We deliver.</span></h1>
+  <p>Order from the best restaurants near you in minutes.</p>
+  <input id="search" class="search" type="search" placeholder="Search restaurants or cuisines…" />
+</section>
+
+<main id="view-home">
+  <div id="restaurant-grid" class="grid"></div>
+</main>
+
+<main id="view-orders" class="hidden">
+  <h2 class="section-title">My Orders</h2>
+  <div id="orders-list" class="orders"></div>
+</main>
+
+<div class="drawer-backdrop hidden" id="drawer-backdrop"></div>
+<aside class="drawer hidden" id="cart-drawer">
+  <div class="drawer-head">
+    <h3>Your cart</h3>
+    <button class="icon-btn" id="cart-close">✕</button>
+  </div>
+  <div id="cart-items" class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-line"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+    <div class="cart-line"><span>Delivery</span><span id="cart-fee">$0.00</span></div>
+    <div class="cart-line total"><span>Total</span><span id="cart-total">$0.00</span></div>
+    <input id="address" class="input" placeholder="Delivery address" />
+    <input id="notes" class="input" placeholder="Notes (optional)" />
+    <button class="primary" id="checkout-btn">Place order</button>
+  </div>
+</aside>
+
+<div class="modal-backdrop hidden" id="restaurant-modal">
+  <div class="modal">
+    <div id="restaurant-detail"></div>
+    <button class="icon-btn modal-close" data-close="restaurant-modal">✕</button>
+  </div>
+</div>
+
+<div class="modal-backdrop hidden" id="auth-modal">
+  <div class="modal small">
+    <h3 id="auth-title">Sign in</h3>
+    <div id="auth-error" class="error hidden"></div>
+    <input id="auth-name" class="input hidden" placeholder="Your name" />
+    <input id="auth-email" class="input" placeholder="Email" type="email" />
+    <input id="auth-password" class="input" placeholder="Password (min 6 chars)" type="password" />
+    <button class="primary" id="auth-submit">Sign in</button>
+    <button class="link" id="auth-toggle">Need an account? Register</button>
+    <button class="icon-btn modal-close" data-close="auth-modal">✕</button>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>
